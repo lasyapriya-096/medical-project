@@ -1,10 +1,39 @@
-<!DOCTYPE htl>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>My First web page</title>
+<title>Smart Medical Expiry Alert</title>
 </head>
 <body>
-	<h1>Welcome to my web page</h1>
-	<p>Hello! I created my first website.</p>
+<h1>Smart Medical Expiry Alert System</h1>
+Medical Name:
+<input type="text" id="medicine">
+
+<br><br>
+
+Expiry Date:
+<input type="date"  id="expiry">
+
+<br><br>
+
+<button onclick="checkExpiry()">check Medicine</button>
+<script>
+function checkExpiry()  {
+	let expiry=
+document.getElementById("expiry").value;
+	let today=new Date();
+	let exDate=new Date(expiry);
+
+	let diff=(exDate-today)/(1000*60*60*24);
+	if(diff<0){
+		sssalert("Expired Medicine!");
+	}
+	else if(diff<=30){
+		alert("warning! Medicine expires soon!");
+	}
+	else{
+		alert("Medicine is safe.");
+	}
+}
+</script>
 </body>
 </html>
